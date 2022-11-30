@@ -24,3 +24,9 @@ graph LR;
     end
 
 ```
+
+## Business Logic Layer
+
+It is according to the state management selection. There are several state management for Flutter Project. 
+[GETx](https://pub.dev/packages/get) is the most popular package on pub.dev. However, Flutter favorite state management is [Provider](https://pub.dev/packages/provider).
+Also, another large group of experienced developers love [BLoC](https://bloclibrary.dev/#/) 
