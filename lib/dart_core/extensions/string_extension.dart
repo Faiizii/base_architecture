@@ -1,0 +1,1 @@
+//any function to format the repetitive string manipulations
