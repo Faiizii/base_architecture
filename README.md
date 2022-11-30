@@ -4,7 +4,7 @@ A base for starting a fresh project with all essentials project structure. Basic
 
 
 ```mermaid
-graph TB;
+graph LR;
     subgraph Data Layer
         Networking --> Database
         Networking --> Repos
