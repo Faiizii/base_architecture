@@ -14,7 +14,7 @@ class FileManager {
 
   //pass ImageSource.camera to pick the image from the camera
   Future<void> pickVideo({ImageSource source = ImageSource.gallery}) async {
-    assert(_picker != null,"make sure you have called init() method before calling the pickMultipleImages()");
+    assert(_picker != null,"make sure you have called init() method before calling the pickVideo()");
     try {
       final XFile? videoFile = await _picker!.pickVideo(source: source);
       if(videoFile == null){
