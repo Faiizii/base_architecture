@@ -39,12 +39,15 @@ dependencies:
 
   #networking
   http: ^0.13.5
+  #storage
+  hive: ^2.2.3
   #managers
   firebase_messaging: ^14.1.4
   image_picker: ^0.8.6
   shared_preferences: ^2.0.15
   geolocator: ^9.0.2
   permission_handler: ^10.2.0
+  flutter_stripe: ^7.0.0
 
 dev_dependencies:
   flutter_test:
