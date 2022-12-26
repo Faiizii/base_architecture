@@ -31,7 +31,7 @@ class PaymentManager {
 
       // this token will be send to backend
       // backend will create the payment intent
-      // and complete the payment on the basis of the payment intent id
+      // and complete the payment by providing the payment intent id
       return paymentMethod.id;
     }catch (e){
       //handle exception
