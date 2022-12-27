@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       translations: TranslationConfig(),
       fallbackLocale: TranslationConfig.english, //select default language
-      // locale: TranslationConfig.english, //do not enable it. it will not allow to change the language.
+      locale: TranslationConfig.english,
       home: const MyHomePage(title: 'Base Architecture'),
     );
   }
@@ -70,32 +70,33 @@ class _MyHomePageState extends State<MyHomePage> {
             },)
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(mainAxisAlignment:MainAxisAlignment.spaceAround,children: <Widget>[
-              TextButton(onPressed: (){
-                Get.updateLocale(TranslationConfig.english);
-              }, child: const Text('English')),
-              TextButton(onPressed: (){
-                Get.updateLocale(TranslationConfig.french);
-              }, child: const Text('French'))
-            ],),
-            Text(
-              StringConstants.homeTest.tr,
-              style: Get.textTheme.caption,
-            ),
-            Text(
-              '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .headline4,
-            ),
-          ],
-        ),
-      ),
+      body: Column(children: [
+        Row(mainAxisAlignment:MainAxisAlignment.spaceAround,children: <Widget>[
+          TextButton(onPressed: (){
+            Get.updateLocale(TranslationConfig.english);
+          }, child: const Text('Change to English')),
+          TextButton(onPressed: (){
+            Get.updateLocale(TranslationConfig.french);
+          }, child: const Text('Change to French'))
+        ],),
+        Expanded(child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                StringConstants.homeTest.tr,
+                style: Theme.of(context).textTheme.caption,
+              ),
+              Text(
+                '$_counter',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline4
+              ),
+            ],
+          ),
+        ),),
+      ],),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
