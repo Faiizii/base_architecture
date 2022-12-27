@@ -13,6 +13,7 @@ class ThemeHelper {
     textTheme: Typography().white.copyWith(
       caption: Get.textTheme.caption?.copyWith(color: Colors.red)
     ),
+    errorColor: Colors.red,
     colorScheme: const ColorScheme.dark().copyWith(
       primary: Colors.red,
       surface: Colors.red

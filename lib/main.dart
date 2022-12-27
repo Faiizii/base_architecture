@@ -1,4 +1,6 @@
 import 'package:base_architecture/themes/theme_helper.dart';
+import 'package:base_architecture/translations/translation_config.dart';
+import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeHelper.lightTheme,
       darkTheme: ThemeHelper.darkTheme,
       themeMode: ThemeMode.system,
-      home: const MyHomePage(title: 'Home Page'),
+      translations: TranslationConfig(),
+      fallbackLocale: TranslationConfig.english, //select default language
+      // locale: TranslationConfig.english, //do not enable it. it will not allow to change the language.
+      home: const MyHomePage(title: 'Base Architecture'),
     );
   }
 }
@@ -69,8 +74,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Row(mainAxisAlignment:MainAxisAlignment.spaceAround,children: <Widget>[
+              TextButton(onPressed: (){
+                Get.updateLocale(TranslationConfig.english);
+              }, child: const Text('English')),
+              TextButton(onPressed: (){
+                Get.updateLocale(TranslationConfig.french);
+              }, child: const Text('French'))
+            ],),
             Text(
-              'You have pushed the button this many times:',
+              StringConstants.homeTest.tr,
               style: Get.textTheme.caption,
             ),
             Text(
