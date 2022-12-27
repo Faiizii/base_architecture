@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class ThemeHelper {
@@ -7,6 +8,10 @@ class ThemeHelper {
     buttonTheme: const ButtonThemeData(
       buttonColor: Colors.amber,
       disabledColor: Colors.grey,
+    ),
+    useMaterial3: true,
+    textTheme: Typography().white.copyWith(
+      caption: Get.textTheme.caption?.copyWith(color: Colors.red)
     ),
     colorScheme: const ColorScheme.dark().copyWith(
       primary: Colors.red,

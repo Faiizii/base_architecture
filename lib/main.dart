@@ -40,22 +40,45 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  bool isDark = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          Switch(
+            value: isDark,
+            inactiveThumbImage: Image.asset("assets/moon.png",width: 48,).image,
+            activeThumbImage: Image.asset("assets/sun.png",width: 48,).image,
+            inactiveThumbColor: Colors.transparent,
+            activeColor: Colors.transparent,
+            onChanged: (bool value) {
+              if (value) {
+                Get.changeThemeMode(ThemeMode.dark);
+              } else {
+                Get.changeThemeMode(ThemeMode.light);
+              }
+              setState(() {
+                isDark = value;
+              });
+            },)
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
+            Text(
               'You have pushed the button this many times:',
+              style: Get.textTheme.caption,
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headline4,
             ),
           ],
         ),
