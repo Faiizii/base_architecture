@@ -1,5 +1,6 @@
 import 'package:base_architecture/themes/theme_helper.dart';
 import 'package:base_architecture/translations/translation_config.dart';
+import 'package:base_architecture/utils/image_constants.dart';
 import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -54,8 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           Switch(
             value: isDark,
-            inactiveThumbImage: Image.asset("assets/moon.png",width: 48,).image,
-            activeThumbImage: Image.asset("assets/sun.png",width: 48,).image,
+            inactiveThumbImage: Image.asset(ImageConstants.moonImage,width: 48,).image,
+            activeThumbImage: Image.asset(ImageConstants.sunImage,width: 48,).image,
             inactiveThumbColor: Colors.transparent,
             activeColor: Colors.transparent,
             onChanged: (bool value) {
