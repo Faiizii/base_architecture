@@ -8,15 +8,18 @@ import 'package:hive/hive.dart';
 
 class DbConfig {
 
-  void saveTestModel(TestModel model) async {
-    var box = await Hive.openBox("test_models");
-    box.put(model.name, model);
+  Future<void> saveTestModel(TestModel model) async {
+    var box = await Hive.openBox<TestModel>("test_models");
+    box.put(model.name, model); //here id is [model.name]'s value
+    //use add function for auto increment of index/id.
     await box.close();
   }
 
-  Future<TestModel> getTestModel(String name) async {
-    var box = await Hive.openBox("test_models");
-    return box.get(name);
+  Future<TestModel?> getTestModel(String name) async {
+    var box = await Hive.openBox<TestModel>("test_models");
+    TestModel? model = box.get(name);
+    box.close();
+    return model;
   }
 
 }
