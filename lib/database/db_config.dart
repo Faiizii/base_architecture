@@ -3,7 +3,7 @@
 //get storage is not a database. so not including that in comparison.
 // get storage can be an alternative to shared preference.
 
-import 'package:base_architecture/database/test_model.dart';
+import 'package:base_architecture/database/models/test_model.dart';
 import 'package:hive/hive.dart';
 
 class DbConfig {
