@@ -39,6 +39,8 @@ dependencies:
 
   #state management
   get: ^4.6.5
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
   #networking
   http: ^0.13.5
   #storage
@@ -61,8 +63,10 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+#  bloc_test: ^9.1.0
   hive_generator: ^2.0.0
+
+  flutter_lints: ^2.0.0
   build_runner: ^2.3.3
 
 # For information on the generic Dart part of this file, see the

@@ -1,8 +1,8 @@
 import 'package:base_architecture/themes/theme_helper.dart';
 import 'package:base_architecture/translations/translation_config.dart';
+import 'package:base_architecture/ui/screens/temp_screen/bloc_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/getx_screen.dart';
 import 'package:base_architecture/utils/image_constants.dart';
-import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -75,16 +75,18 @@ class _MyHomePageState extends State<MyHomePage> {
             width: 200,
             child: ElevatedButton(onPressed: () {
               Get.to(() => const GetXScreen());
-            }, child: Text("GetX")),
+            }, child: const Text("GetX")),
           ),
           SizedBox(
               width: 200,
               child: ElevatedButton(
-                  onPressed: () {}, child: Text("BLoC"))),
+                  onPressed: () {
+                    Get.to(()=> const BlocScreen());
+                  }, child: const Text("BLoC"))),
           SizedBox(
               width: 200,
               child: ElevatedButton(
-                  onPressed: () {}, child: Text("Provider"))),
+                  onPressed: () {}, child: const Text("Provider"))),
         ],),
       ),
     );
