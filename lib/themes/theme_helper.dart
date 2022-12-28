@@ -11,11 +11,11 @@ class ThemeHelper {
     ),
     useMaterial3: true,
     textTheme: Typography().white.copyWith(
-      caption: Get.textTheme.caption?.copyWith(color: Colors.red)
+      caption: Get.textTheme.caption?.copyWith(color: Colors.yellow)
     ),
     errorColor: Colors.red,
     colorScheme: const ColorScheme.dark().copyWith(
-      primary: Colors.red,
+      primary: Colors.yellow,
       surface: Colors.red
     ),
   );

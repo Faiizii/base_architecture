@@ -1,5 +1,6 @@
 import 'package:base_architecture/themes/theme_helper.dart';
 import 'package:base_architecture/translations/translation_config.dart';
+import 'package:base_architecture/ui/screens/temp_screen/getx_screen.dart';
 import 'package:base_architecture/utils/image_constants.dart';
 import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';
@@ -38,13 +39,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   bool isDark = false;
   @override
@@ -55,8 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           Switch(
             value: isDark,
-            inactiveThumbImage: Image.asset(ImageConstants.moonImage,width: 48,).image,
-            activeThumbImage: Image.asset(ImageConstants.sunImage,width: 48,).image,
+            inactiveThumbImage: Image
+                .asset(ImageConstants.moonImage, width: 48,)
+                .image,
+            activeThumbImage: Image
+                .asset(ImageConstants.sunImage, width: 48,)
+                .image,
             inactiveThumbColor: Colors.transparent,
             activeColor: Colors.transparent,
             onChanged: (bool value) {
@@ -71,37 +69,23 @@ class _MyHomePageState extends State<MyHomePage> {
             },)
         ],
       ),
-      body: Column(children: [
-        Row(mainAxisAlignment:MainAxisAlignment.spaceAround,children: <Widget>[
-          TextButton(onPressed: (){
-            Get.updateLocale(TranslationConfig.english);
-          }, child: const Text('Change to English')),
-          TextButton(onPressed: (){
-            Get.updateLocale(TranslationConfig.french);
-          }, child: const Text('Change to French'))
-        ],),
-        Expanded(child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                StringConstants.homeTest.tr,
-                style: Theme.of(context).textTheme.caption,
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline4
-              ),
-            ],
+      body: Center(
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          SizedBox(
+            width: 200,
+            child: ElevatedButton(onPressed: () {
+              Get.to(() => const GetXScreen());
+            }, child: Text("GetX")),
           ),
-        ),),
-      ],),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {}, child: Text("BLoC"))),
+          SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () {}, child: Text("Provider"))),
+        ],),
       ),
     );
   }
