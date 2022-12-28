@@ -7,6 +7,9 @@ import 'package:base_architecture/database/models/test_model.dart';
 import 'package:hive/hive.dart';
 
 class DbConfig {
+  static final DbConfig _instance = DbConfig._();
+  DbConfig._();
+  factory DbConfig() => _instance;
 
   Future<void> saveTestModel(TestModel model) async {
     var box = await Hive.openBox<TestModel>("test_models");
@@ -18,8 +21,13 @@ class DbConfig {
   Future<TestModel?> getTestModel(String name) async {
     var box = await Hive.openBox<TestModel>("test_models");
     TestModel? model = box.get(name);
-    box.close();
+    await box.close();
     return model;
   }
-
+  Future<TestModel?> getTestModelByIndex(int index) async {
+    var box = await Hive.openBox<TestModel>("test_models");
+    TestModel? model = box.get(index);
+    await box.close();
+    return model;
+  }
 }
