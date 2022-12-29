@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
+  //ensure initializing bindings here
+  //initialize strip, hive, firebase here
   runApp(const MyApp());
 }
 
@@ -16,14 +18,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return GetMaterialApp( //if you don't want to use GETx, replace GetMaterialApp with MaterialApp
       title: 'Base Architecture',
       theme: ThemeHelper.lightTheme,
       darkTheme: ThemeHelper.darkTheme,
       themeMode: ThemeMode.system,
       translations: TranslationConfig(),
-      fallbackLocale: TranslationConfig.english, //select default language
-      locale: TranslationConfig.english,
+      fallbackLocale: TranslationConfig.english, //select default language when no translation found in the targeted language files
+      locale: TranslationConfig.english, //default language
       home: const MyHomePage(title: 'Base Architecture'),
     );
   }
@@ -41,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  bool isDark = false;
+  bool isDark = Get.isDarkMode;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,19 +80,22 @@ class _MyHomePageState extends State<MyHomePage> {
               Get.to(() => const GetXScreen());
             }, child: const Text("GetX 10k+ Likes")),
           ),
+          const SizedBox(height: 4,),
           SizedBox(
               width: 200,
               child: ElevatedButton(
                   onPressed: () {
                     Get.to(()=> const ProviderScreen());
-                  }, child: const Text("Provider ~8k likes"))),
+                  }, child: const Text("Provider ~8k likes"))
+          ),
+          const SizedBox(height: 4,),
           SizedBox(
               width: 200,
               child: ElevatedButton(
                   onPressed: () {
                     Get.to(()=> const BlocScreen());
-                  }, child: const Text("BLoC ~5k likes"))),
-
+                  }, child: const Text("BLoC ~5k likes"))
+          ),
         ],),
       ),
     );
