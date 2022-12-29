@@ -1,3 +1,4 @@
+import 'package:base_architecture/ui/design_system/text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,8 @@ class ThemeHelper {
     ),
     useMaterial3: true,
     textTheme: Typography().white.copyWith(
-      caption: Get.textTheme.caption?.copyWith(color: Colors.yellow)
+      titleLarge: MyTopography.titleLarge,
+      titleMedium: MyTopography.titleMedium,
     ),
     errorColor: Colors.red,
     textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(
