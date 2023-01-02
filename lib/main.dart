@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 200,
               child: ElevatedButton(
                   onPressed: () {
-                    Get.to(()=> const ProviderScreen());
+                    Get.to(() => const ProviderScreen());
                   }, child: const Text("Provider ~8k likes"))
           ),
           const SizedBox(height: 4,),
@@ -101,8 +101,37 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 200,
               child: ElevatedButton(
                   onPressed: () {
-                    Get.to(()=> const BlocScreen());
+                    Get.to(() => const BlocScreen());
                   }, child: const Text("BLoC ~5k likes"))
+          ),
+          const SizedBox(height: 4,),
+          SizedBox(
+              width: 200,
+              child: ElevatedButton(
+                  onPressed: () async {
+                    List<ThemeData> themes = [ThemeHelper.purpleTheme,ThemeHelper.lightTheme];
+                    List<String> names = ["Purple","Normal"];
+
+                    await showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Select Theme'),
+                            content: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: themes.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return  ListTile(
+                                  title: Text(names[index]),
+                                  onTap: (){
+                                    Get.changeTheme(themes[index]);
+                                  },
+                                );
+                              },
+                            ),
+                          );
+                        });
+                  }, child: const Text("Change Theme"))
           ),
         ],),
       ),

@@ -43,14 +43,13 @@ class ThemeHelper {
     ),
   );
 
-
   static final ThemeData lightTheme = ThemeData(
       buttonTheme: const ButtonThemeData(
         buttonColor: Colors.blue,
         disabledColor: Colors.grey,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white
+          foregroundColor: Colors.white
       )),
       cardTheme: const CardTheme(
         elevation: 6,
@@ -58,7 +57,26 @@ class ThemeHelper {
         color: Colors.white,
       ),
       colorScheme: const ColorScheme.light().copyWith(
-          primary: Colors.green,
+        primary: Colors.green,
+      )
+  );
+
+  static final ThemeData purpleTheme = ThemeData(
+      buttonTheme: const ButtonThemeData(
+        buttonColor: Colors.purple,
+        disabledColor: Colors.grey,
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.purple
+      )),
+      cardTheme: const CardTheme(
+        elevation: 6,
+        shadowColor: Colors.purple,
+        color: Colors.white,
+      ),
+      colorScheme: const ColorScheme.light().copyWith(
+          primary: Colors.purple,
       )
   );
 }
