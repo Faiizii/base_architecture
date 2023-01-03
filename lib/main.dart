@@ -1,11 +1,10 @@
 import 'package:base_architecture/themes/theme_helper.dart';
 import 'package:base_architecture/translations/translation_config.dart';
-import 'package:base_architecture/ui/design_system/circlular_image.dart';
+import 'package:base_architecture/ui/components/drawer_component.dart';
 import 'package:base_architecture/ui/screens/temp_screen/bloc_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/getx_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/provider_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/typography_screen.dart';
-import 'package:base_architecture/utils/image_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -45,40 +44,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  bool isDark = Get.isDarkMode;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [
-          Switch(
-            value: isDark,
-            inactiveThumbImage: Image
-                .asset(ImageConstants.moonImage, width: 48,)
-                .image,
-            activeThumbImage: Image
-                .asset(ImageConstants.sunImage, width: 48,)
-                .image,
-            inactiveThumbColor: Colors.transparent,
-            activeColor: Colors.transparent,
-            onChanged: (bool value) {
-              if (value) {
-                Get.changeThemeMode(ThemeMode.dark);
-              } else {
-                Get.changeThemeMode(ThemeMode.light);
-              }
-              setState(() {
-                isDark = value;
-              });
-            },)
-        ],
-      ),
+    return DrawerComponent(
+      title: widget.title,
       body: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-
-          const CircularNetworkImage(url: "https://picsum.photos/2048"),
-          const SizedBox(height: 4,),
           SizedBox(
             width: 200,
             child: ElevatedButton(onPressed: () {

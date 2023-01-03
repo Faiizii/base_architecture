@@ -1,6 +1,5 @@
 import 'package:base_architecture/ui/design_system/text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 
 class ThemeHelper {
@@ -28,7 +27,7 @@ class ThemeHelper {
     )),
     cardTheme: const CardTheme(
       elevation: 6,
-      shadowColor: Colors.white38,
+      shadowColor: Colors.blue,
       color: Colors.black87,
       surfaceTintColor: Colors.blue,
     ),
@@ -53,7 +52,6 @@ class ThemeHelper {
       )),
       cardTheme: const CardTheme(
         elevation: 6,
-        shadowColor: Colors.blue,
         color: Colors.white,
       ),
       colorScheme: const ColorScheme.light().copyWith(
