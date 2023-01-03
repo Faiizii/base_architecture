@@ -56,6 +56,9 @@ dependencies:
   permission_handler: ^10.2.0
   flutter_stripe: ^7.0.0
 
+  #unit testing
+  mockito: ^5.3.2
+
   #utils
   cached_network_image: ^3.2.3
 
