@@ -1,5 +1,6 @@
 import 'package:base_architecture/themes/theme_helper.dart';
 import 'package:base_architecture/translations/translation_config.dart';
+import 'package:base_architecture/ui/design_system/circlular_image.dart';
 import 'package:base_architecture/ui/screens/temp_screen/bloc_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/getx_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/provider_screen.dart';
@@ -75,6 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
+
+          const CircularNetworkImage(url: "https://picsum.photos/2048"),
+          const SizedBox(height: 4,),
           SizedBox(
             width: 200,
             child: ElevatedButton(onPressed: () {
@@ -103,35 +107,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () {
                     Get.to(() => const BlocScreen());
                   }, child: const Text("BLoC ~5k likes"))
-          ),
-          const SizedBox(height: 4,),
-          SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () async {
-                    List<ThemeData> themes = [ThemeHelper.purpleTheme,ThemeHelper.lightTheme];
-                    List<String> names = ["Purple","Normal"];
-
-                    await showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Select Theme'),
-                            content: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: themes.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return  ListTile(
-                                  title: Text(names[index]),
-                                  onTap: (){
-                                    Get.changeTheme(themes[index]);
-                                  },
-                                );
-                              },
-                            ),
-                          );
-                        });
-                  }, child: const Text("Change Theme"))
           ),
         ],),
       ),
