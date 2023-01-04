@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (context) {
           final themeMode = Provider.of<DarkThemeProvider>(context);
-          return MaterialApp( //if you don't want to use GETx, replace GetMaterialApp with MaterialApp
+          return MaterialApp(
             title: 'Base Architecture',
             theme: ThemeHelper.lightTheme,
             darkTheme: ThemeHelper.darkTheme,

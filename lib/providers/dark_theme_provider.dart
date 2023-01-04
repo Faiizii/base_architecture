@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class DarkThemeProvider extends ChangeNotifier{
   final PreferenceManager _instance = PreferenceManager();
+
   ThemeMode _mode = ThemeMode.light;
   ThemeMode get mode => _mode;
   bool get isDark => _mode == ThemeMode.dark;
