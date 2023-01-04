@@ -1,6 +1,8 @@
+import 'package:base_architecture/providers/dark_theme_provider.dart';
 import 'package:base_architecture/ui/design_system/circlular_image.dart';
 import 'package:base_architecture/utils/image_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DrawerComponent extends StatefulWidget {
   final Widget body;
@@ -15,6 +17,8 @@ class _DrawerComponentState extends State<DrawerComponent> {
   bool isDark = false;
   @override
   Widget build(BuildContext context) {
+    final themeChanger = Provider.of<DarkThemeProvider>(context);
+    isDark = themeChanger.isDark;
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -30,11 +34,11 @@ class _DrawerComponentState extends State<DrawerComponent> {
             inactiveThumbColor: Colors.transparent,
             activeColor: Colors.transparent,
             onChanged: (bool value) {
-              // if (value) {
-              //   Get.changeThemeMode(ThemeMode.dark);
-              // } else {
-              //   Get.changeThemeMode(ThemeMode.light);
-              // }
+              if (value) {
+                themeChanger.updateTheme(ThemeMode.dark);
+              } else {
+                themeChanger.updateTheme(ThemeMode.light);
+              }
               setState(() {
                 isDark = value;
               });

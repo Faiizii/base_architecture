@@ -1,5 +1,5 @@
 
-import 'package:base_architecture/state_management/provider/test_provider.dart';
+import 'package:base_architecture/providers/test_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

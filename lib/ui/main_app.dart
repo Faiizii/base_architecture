@@ -1,24 +1,38 @@
 
 
+import 'package:base_architecture/providers/dark_theme_provider.dart';
 import 'package:base_architecture/themes/theme_helper.dart';
 import 'package:base_architecture/translations/translation_config.dart';
 import 'package:base_architecture/ui/components/drawer_component.dart';
 import 'package:base_architecture/ui/screens/temp_screen/provider_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/typography_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp( //if you don't want to use GETx, replace GetMaterialApp with MaterialApp
-      title: 'Base Architecture',
-      theme: ThemeHelper.lightTheme,
-      darkTheme: ThemeHelper.darkTheme,
-      themeMode: ThemeMode.system,
-      locale: TranslationConfig.english, //default language
-      home: const MyHomePage(title: 'Base Architecture'),
+    return ChangeNotifierProvider<DarkThemeProvider>(
+      create: (_){
+        var provider = DarkThemeProvider();
+        provider.init();
+        return provider;
+      },
+      child: Builder(
+        builder: (context) {
+          final themeMode = Provider.of<DarkThemeProvider>(context);
+          return MaterialApp( //if you don't want to use GETx, replace GetMaterialApp with MaterialApp
+            title: 'Base Architecture',
+            theme: ThemeHelper.lightTheme,
+            darkTheme: ThemeHelper.darkTheme,
+            themeMode: themeMode.mode,
+            locale: TranslationConfig.english, //default language
+            home: const MyHomePage(title: 'Base Architecture'),
+          );
+        }
+      ),
     );
   }
 }
