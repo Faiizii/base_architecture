@@ -1,4 +1,5 @@
 import 'package:base_architecture/managers/preference_manager.dart';
+import 'package:base_architecture/translations/translation_config.dart';
 import 'package:flutter/material.dart';
 
 class DarkThemeProvider extends ChangeNotifier{
@@ -6,6 +7,10 @@ class DarkThemeProvider extends ChangeNotifier{
 
   ThemeMode _mode = ThemeMode.light;
   ThemeMode get mode => _mode;
+
+  Locale _locale = Translation.english;
+
+  Locale get language => _locale;
   bool get isDark => _mode == ThemeMode.dark;
 
   void init() async {
@@ -16,6 +21,11 @@ class DarkThemeProvider extends ChangeNotifier{
   void updateTheme(ThemeMode mode) {
     _instance.saveDarkMode(mode == ThemeMode.dark);
     _mode = mode;
+    notifyListeners();
+  }
+
+  void updateLocale(Locale locale) {
+    _locale = locale;
     notifyListeners();
   }
 

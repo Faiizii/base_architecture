@@ -7,6 +7,7 @@ import 'package:base_architecture/ui/components/drawer_component.dart';
 import 'package:base_architecture/ui/screens/temp_screen/provider_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/typography_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -28,7 +29,15 @@ class MyApp extends StatelessWidget {
             theme: ThemeHelper.lightTheme,
             darkTheme: ThemeHelper.darkTheme,
             themeMode: themeMode.mode,
-            locale: TranslationConfig.english, //default language
+            locale: themeMode.language, //default language
+            localizationsDelegates: [
+              TranslationDelegate(),
+              GlobalWidgetsLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+            ],
+            supportedLocales: [
+              Translation.english,Translation.french
+            ],
             home: const MyHomePage(title: 'Base Architecture'),
           );
         }

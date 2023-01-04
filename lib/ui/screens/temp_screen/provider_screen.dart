@@ -1,5 +1,8 @@
 
+import 'package:base_architecture/providers/dark_theme_provider.dart';
 import 'package:base_architecture/providers/test_provider.dart';
+import 'package:base_architecture/translations/translation_config.dart';
+import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,10 +38,10 @@ class ContentView extends StatelessWidget{
       body: Column(children: [
         Row(mainAxisAlignment:MainAxisAlignment.spaceAround,children: <Widget>[
           TextButton(onPressed: (){
-            // Get.updateLocale(TranslationConfig.english);
+            Provider.of<DarkThemeProvider>(context,listen: false).updateLocale(Translation.english);
           }, child: const Text('Change to English')),
           TextButton(onPressed: (){
-            // Get.updateLocale(TranslationConfig.french);
+            Provider.of<DarkThemeProvider>(context,listen: false).updateLocale(Translation.english);
           }, child: const Text('Change to French'))
         ],),
         Expanded(child: Center(
@@ -46,7 +49,7 @@ class ContentView extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'StringConstants.homeTest.tr',
+                Translation.of(context)?.translate(StringConstants.homeTest) ?? 'no_translation',
                 style: Theme.of(context).textTheme.caption,
               ),
               const CountText(),
