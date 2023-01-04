@@ -1,7 +1,10 @@
-import 'package:base_architecture/dart_core/global_functions/utils_global_function.dart';
+
 import 'package:image_picker/image_picker.dart';
+import 'package:logging/logging.dart';
 
 class FileManager {
+  final Logger _log = Logger("FileManager");
+
   static final FileManager _instance = FileManager._();
   FileManager._();
   factory FileManager() => _instance;
@@ -23,7 +26,7 @@ class FileManager {
         //chose what to do with picked video
       }
     }catch(e){
-      printLog(e);
+      _log.log(Level.SEVERE,e);
     }
   }
 
@@ -37,7 +40,7 @@ class FileManager {
         //chose what to do with picked images
       }
     }catch(e){
-      printLog(e);
+      _log.log(Level.SEVERE,e);
     }
   }
 
@@ -52,7 +55,7 @@ class FileManager {
         //chose what to do with picked image
       }
     }catch(e){
-      printLog(e);
+      _log.log(Level.SEVERE,e);
     }
   }
 }

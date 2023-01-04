@@ -48,7 +48,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   #managers
-#  firebase_core:
+  firebase_core: ^2.4.1
   firebase_messaging: ^14.1.4
   image_picker: ^0.8.6
   shared_preferences: ^2.0.15
@@ -61,6 +61,11 @@ dependencies:
 
   #utils
   cached_network_image: ^3.2.3
+
+  #logging
+  logging: ^1.1.0
+  firebase_crashlytics: ^3.0.9
+
 
 
 dev_dependencies:
