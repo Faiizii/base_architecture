@@ -1,9 +1,6 @@
 
 import 'package:base_architecture/state_management/provider/test_provider.dart';
-import 'package:base_architecture/translations/translation_config.dart';
-import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class ProviderScreen extends StatelessWidget{
@@ -38,10 +35,10 @@ class ContentView extends StatelessWidget{
       body: Column(children: [
         Row(mainAxisAlignment:MainAxisAlignment.spaceAround,children: <Widget>[
           TextButton(onPressed: (){
-            Get.updateLocale(TranslationConfig.english);
+            // Get.updateLocale(TranslationConfig.english);
           }, child: const Text('Change to English')),
           TextButton(onPressed: (){
-            Get.updateLocale(TranslationConfig.french);
+            // Get.updateLocale(TranslationConfig.french);
           }, child: const Text('Change to French'))
         ],),
         Expanded(child: Center(
@@ -49,7 +46,7 @@ class ContentView extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                StringConstants.homeTest.tr,
+                'StringConstants.homeTest.tr',
                 style: Theme.of(context).textTheme.caption,
               ),
               const CountText(),

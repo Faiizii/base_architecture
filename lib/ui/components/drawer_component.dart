@@ -1,7 +1,6 @@
 import 'package:base_architecture/ui/design_system/circlular_image.dart';
 import 'package:base_architecture/utils/image_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DrawerComponent extends StatefulWidget {
   final Widget body;
@@ -13,7 +12,7 @@ class DrawerComponent extends StatefulWidget {
 }
 
 class _DrawerComponentState extends State<DrawerComponent> {
-  bool isDark = Get.isDarkMode;
+  bool isDark = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,11 +30,11 @@ class _DrawerComponentState extends State<DrawerComponent> {
             inactiveThumbColor: Colors.transparent,
             activeColor: Colors.transparent,
             onChanged: (bool value) {
-              if (value) {
-                Get.changeThemeMode(ThemeMode.dark);
-              } else {
-                Get.changeThemeMode(ThemeMode.light);
-              }
+              // if (value) {
+              //   Get.changeThemeMode(ThemeMode.dark);
+              // } else {
+              //   Get.changeThemeMode(ThemeMode.light);
+              // }
               setState(() {
                 isDark = value;
               });
