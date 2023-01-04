@@ -1,4 +1,5 @@
-import 'package:base_architecture/state_management/getx/test_controller.dart';
+
+import 'package:base_architecture/controllers/test_controller.dart';
 import 'package:base_architecture/translations/translation_config.dart';
 import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';

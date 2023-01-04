@@ -3,9 +3,7 @@
 import 'package:base_architecture/themes/theme_helper.dart';
 import 'package:base_architecture/translations/translation_config.dart';
 import 'package:base_architecture/ui/components/drawer_component.dart';
-import 'package:base_architecture/ui/screens/temp_screen/bloc_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/getx_screen.dart';
-import 'package:base_architecture/ui/screens/temp_screen/provider_screen.dart';
 import 'package:base_architecture/ui/screens/temp_screen/typography_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -58,22 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ElevatedButton(onPressed: () {
               Get.to(() => const GetXScreen());
             }, child: const Text("GetX 10k+ Likes")),
-          ),
-          const SizedBox(height: 4,),
-          SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    Get.to(() => const ProviderScreen());
-                  }, child: const Text("Provider ~8k likes"))
-          ),
-          const SizedBox(height: 4,),
-          SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {
-                    Get.to(() => const BlocScreen());
-                  }, child: const Text("BLoC ~5k likes"))
           ),
         ],),
       ),

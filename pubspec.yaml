@@ -39,9 +39,6 @@ dependencies:
 
   #state management
   get: ^4.6.5
-  provider: ^6.0.5
-  bloc: ^8.1.0
-  flutter_bloc: ^8.1.1
   #networking
   http: ^0.13.5
   #storage
