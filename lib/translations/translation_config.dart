@@ -1,9 +1,8 @@
 import 'package:base_architecture/translations/languages/english_us.dart';
 import 'package:base_architecture/translations/languages/french.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class TranslationConfig extends Translations{
+class TranslationConfig {
 
   @override
   Map<String, Map<String, String>> get keys => {

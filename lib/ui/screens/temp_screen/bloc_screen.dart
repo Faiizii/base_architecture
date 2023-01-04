@@ -1,9 +1,6 @@
 import 'package:base_architecture/state_management/bloc/test_cubit.dart';
-import 'package:base_architecture/translations/translation_config.dart';
-import 'package:base_architecture/utils/string_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 
 class BlocScreen extends StatelessWidget{
   const BlocScreen({super.key});
@@ -35,10 +32,10 @@ class ContentView extends StatelessWidget{
       body: Column(children: [
         Row(mainAxisAlignment:MainAxisAlignment.spaceAround,children: <Widget>[
           TextButton(onPressed: (){
-            Get.updateLocale(TranslationConfig.english);
+            // Get.updateLocale(TranslationConfig.english);
           }, child: const Text('Change to English')),
           TextButton(onPressed: (){
-            Get.updateLocale(TranslationConfig.french);
+            // Get.updateLocale(TranslationConfig.french);
           }, child: const Text('Change to French'))
         ],),
         Expanded(child: Center(
@@ -46,7 +43,7 @@ class ContentView extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                StringConstants.homeTest.tr,
+                'StringConstants.homeTest.tr',
                 style: Theme.of(context).textTheme.caption,
               ),
               BlocBuilder<TestCubit,int>(builder: (context, state) {
